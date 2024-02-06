@@ -10,8 +10,8 @@
                             {{ session('success') }}
                         @endif
                         <br>
-                        <a href="{{ route('home') }}" class="btn btn-primary">
-                            Go Back
+                        <a href="{{ route('view_book', $id) }}" class="btn btn-primary">
+                            View Book
                         </a>
                     </div>
                 </div>

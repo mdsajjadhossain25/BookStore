@@ -15,18 +15,19 @@ class BookController extends Controller
     {
         $validateData = $request->validate([
             'title' => 'required|string|max:255',
+            'isbn' => 'required|numeric|unique:books,isbn',
             'author' => 'required|string|max:255',
-            'isbn' => 'required|string|max:10',
-            'details' => 'required|string|max:255',
-            'quantity' => 'required|integer|max:255',
-            'price' => 'required|string|max:255',
+            'price' => 'required|numeric',
+            'details' => 'required|string',
+            'quantity' => 'required|numeric',
         ]);
         $book = Book::create($validateData);
-        return redirect()->route('added_successfully')->with('success', 'Book added Successfully');
+        return redirect()->route('added_successfully', $book->id)->with('success', 'Book added Successfully');
     }
-    public function addSuccess()
+    public function addSuccess($id)
     {
-        return view('book.added_successfully');
+
+        return view('book.added_successfully')->with('id', $id);
     }
 
     public function deleteBook($id)
@@ -45,17 +46,18 @@ class BookController extends Controller
     {
         $validateData = $request->validate([
             'title' => 'required|string|max:255',
+            'isbn' => 'required|numeric|unique:books,isbn,' . $id,
             'author' => 'required|string|max:255',
-            'isbn' => 'required|string|max:10',
-            'details' => 'required|string|max:255',
-            'quantity' => 'required|integer|max:255',
-            'price' => 'required|string|max:255',
+            'price' => 'required|numeric',
+            'details' => 'required|string',
+            'quantity' => 'required|numeric',
         ]);
         $book = Book::find($id);
         $book->update($validateData);
-        return redirect()->route('added_successfully')->with('success', 'Book Updated Successfully');
+        return redirect()->route('added_successfully', $book->id)->with('success', 'Book Updated Successfully');
     }
-    public function viewBook($id){
+    public function viewBook($id)
+    {
         $book = Book::find($id);
         return view('book.single_book', compact('book'));
     }

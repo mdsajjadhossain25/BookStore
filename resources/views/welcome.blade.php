@@ -31,7 +31,15 @@
                             <th scope="row">{{ $book->isbn }}</th>
                             <td>{{ $book->title }}</td>
                             <td>{{ $book->author }}</td>
-                            <td>{{ $book->quantity }}</td>
+                            <td>
+                                <button class="btn" >
+                                    @if ($book->quantity>0)
+                                     <span class="badge bg-primary">in stock</span>
+                                    @else
+                                    <span class="badge bg-danger">out of stock</span>
+                                    @endif
+                                </button>
+                            </td>
                             <td><a href="{{ route('delete_book', $book->id) }}" class="text-danger"><i class="fas fa-trash"></i></a></td>
                             <td><a href="{{ route('update_book', $book->id) }}" class="text-primary"><i class="fas fa-pen"></i></a></td>
                             <td><a href="{{ route('view_book', $book->id) }}" class="text-primary"><i class="fa-solid fa-eye"></i></a></td>

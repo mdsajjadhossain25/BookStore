@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('author');
-            $table->string('isbn');
-            $table->string('price');
+            $table->integer('isbn');
+            $table->integer('price');
             $table->string('details');
             $table->integer('quantity');
             $table->timestamps();

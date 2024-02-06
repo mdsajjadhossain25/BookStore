@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('main-section')
-<div class="container mt-4">
+<div class="container mt-4 mb-4">
     <div class="card shadow">
         <div class="card-body">
             <h2 class="card-title text-center mb-4">Book Details</h2>

@@ -30,7 +30,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
             <!-- Navbar brand/logo (optional) -->
-            <a class="navbar-brand" href="{{ route('home') }}">Your Logo</a>
+            <a class="navbar-brand" href="{{ route('home') }}">BookStore</a>
 
             <!-- Navbar links -->
             <ul class="navbar-nav">

@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('main-section')
-<div class="container mt-4">
-    <center><h3 class="btn btn-success">update Book</h3></center>
+<div class="container mt-4 mb-4">
+    <h2 class="text-center mb-3">Update Book</h2>
     <form action="{{route('update_book', $book->id)}}" method="post">
         @csrf
         <div class="mb-3">
